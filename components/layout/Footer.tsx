@@ -6,9 +6,9 @@ import { Phone, Mail, MapPin, Clock, MessageSquare, ArrowUpRight } from "lucide-
 
 export function Footer() {
   return (
-    <footer className="bg-aubergine-dark text-warm-ivory border-t border-border-dark pt-14 pb-28 md:pb-14 relative overflow-hidden">
+    <footer className="bg-aubergine-dark text-warm-ivory border-t border-border-dark py-12 md:py-14 relative overflow-hidden">
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 pb-12 border-b border-border-dark">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-8 pb-10 border-b border-border-dark">
           {/* Col 1: Brand & Tagline */}
           <div className="flex flex-col gap-3">
             <Logo variant="full" theme="light" />
@@ -108,8 +108,10 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-text-muted-dark">
-          <p>© {new Date().getFullYear()} {siteContent.brand.legalName}. All rights reserved.</p>
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-text-muted-dark text-center sm:text-left">
+          <p className="leading-relaxed">
+            © {new Date().getFullYear()} {siteContent.brand.legalName}. All rights reserved.
+          </p>
           <p className="font-serif italic text-warm-ivory/80">
             Civil Lines, Meerut • Handcrafted Visual Heirlooms
           </p>

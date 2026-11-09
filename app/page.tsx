@@ -55,18 +55,18 @@ export default function HomePage() {
               </div>
 
               {/* Quick Studio Markers */}
-              <div className="pt-4 border-t border-border-subtle w-full grid grid-cols-3 gap-4 text-xs">
+              <div className="pt-4 border-t border-border-subtle w-full grid grid-cols-3 gap-2 sm:gap-4 text-xs">
                 <div>
-                  <span className="font-serif font-bold text-deep-aubergine text-sm block">18 Max</span>
-                  <span className="text-text-muted text-[11px]">Weddings / Year</span>
+                  <span className="font-serif font-bold text-deep-aubergine text-xs sm:text-sm block">18 Max</span>
+                  <span className="text-text-muted text-[10px] sm:text-[11px] leading-tight block">Weddings / Year</span>
                 </div>
                 <div>
-                  <span className="font-serif font-bold text-deep-aubergine text-sm block">Sony Cinema</span>
-                  <span className="text-text-muted text-[11px]">4K 10-Bit Sound</span>
+                  <span className="font-serif font-bold text-deep-aubergine text-xs sm:text-sm block">Sony Cinema</span>
+                  <span className="text-text-muted text-[10px] sm:text-[11px] leading-tight block">4K 10-Bit Sound</span>
                 </div>
                 <div>
-                  <span className="font-serif font-bold text-deep-aubergine text-sm block">Civil Lines</span>
-                  <span className="text-text-muted text-[11px]">Meerut Studio</span>
+                  <span className="font-serif font-bold text-deep-aubergine text-xs sm:text-sm block">Civil Lines</span>
+                  <span className="text-text-muted text-[10px] sm:text-[11px] leading-tight block">Meerut Studio</span>
                 </div>
               </div>
             </div>

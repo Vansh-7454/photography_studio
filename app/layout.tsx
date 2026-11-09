@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { MobileCallBar } from "@/components/layout/MobileCallBar";
 import { siteContent } from "@/content/site";
 
 const cormorant = Cormorant_Garamond({
@@ -86,9 +85,6 @@ export default function RootLayout({
 
         {/* Global Footer */}
         <Footer />
-
-        {/* Mobile Sticky Quick Action Bar */}
-        <MobileCallBar />
       </body>
     </html>
   );
