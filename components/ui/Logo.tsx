@@ -11,15 +11,15 @@ export function Logo({ variant = "full", theme = "current", className = "" }: Lo
   const isLight = theme === "light";
   const isDark = theme === "dark";
 
-  const primaryColor = isLight ? "#F8F2E8" : isDark ? "#202447" : "currentColor";
-  const secondaryColor = isLight ? "#B2ACA3" : isDark ? "#635F58" : "currentColor";
-  const accentColor = "#C94B3B"; // Sindoor Red
-  const goldColor = "#E6A83A"; // Marigold
+  const primaryColor = isLight ? "#F7F2E9" : isDark ? "#392A3B" : "currentColor";
+  const secondaryColor = isLight ? "#D4CAD4" : isDark ? "#695D69" : "currentColor";
+  const coralColor = "#C96850"; // Terracotta Coral
+  const goldColor = "#D9A64B"; // Muted Marigold
 
   return (
     <Link
       href="/"
-      className={`inline-flex items-center gap-3.5 focus-visible:ring-2 focus-visible:ring-marigold rounded-md transition-opacity hover:opacity-90 ${className}`}
+      className={`inline-flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-terracotta rounded-md transition-opacity hover:opacity-90 ${className}`}
       aria-label="RANGREZ — Wedding Stories & Films Home"
     >
       {/* Icon Mark: Geometric Royal Arch with Optical Lens & Aperture */}
@@ -27,7 +27,7 @@ export function Logo({ variant = "full", theme = "current", className = "" }: Lo
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-9 h-9 md:w-10 md:h-10 shrink-0"
+        className="w-8 h-8 md:w-9 md:h-9 shrink-0"
         aria-hidden="true"
       >
         <path
@@ -43,7 +43,7 @@ export function Logo({ variant = "full", theme = "current", className = "" }: Lo
         />
         <circle cx="50" cy="42" r="7" stroke={primaryColor} strokeWidth="3" />
         <path d="M42 66H58M50 66V82M44 82H56" stroke={primaryColor} strokeWidth="3.5" strokeLinecap="round" />
-        <circle cx="50" cy="28" r="2.5" fill={accentColor} />
+        <circle cx="50" cy="28" r="2.5" fill={coralColor} />
         <circle cx="50" cy="42" r="3" fill={goldColor} />
       </svg>
 
@@ -56,7 +56,7 @@ export function Logo({ variant = "full", theme = "current", className = "" }: Lo
             RANGREZ
           </span>
           <span
-            className="text-[9px] md:text-[10px] font-sans font-semibold tracking-[0.24em] mt-1"
+            className="text-[8.5px] md:text-[9.5px] font-sans font-semibold tracking-[0.24em] mt-1"
             style={{ color: secondaryColor }}
           >
             WEDDING STORIES &amp; FILMS
@@ -66,4 +66,3 @@ export function Logo({ variant = "full", theme = "current", className = "" }: Lo
     </Link>
   );
 }
-

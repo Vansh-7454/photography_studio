@@ -25,23 +25,23 @@ export function Button({
   external = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-sans font-semibold rounded-input text-center transition-all duration-150 focus-visible:ring-2 focus-visible:ring-marigold focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[48px]";
+    "inline-flex items-center justify-center font-sans font-semibold rounded-input text-center transition-all duration-150 focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[46px]";
 
   const variantStyles = {
     primary:
-      "bg-sindoor-red text-white hover:bg-sindoor-dark shadow-sm active:translate-y-[1px]",
+      "bg-terracotta text-white hover:bg-terracotta-dark shadow-subtle active:translate-y-[1px]",
     secondary:
-      "bg-royal-indigo text-warm-ivory hover:bg-royal-indigo-dark shadow-sm active:translate-y-[1px]",
+      "bg-deep-aubergine text-warm-ivory hover:bg-aubergine-dark shadow-subtle active:translate-y-[1px]",
     outline:
-      "border border-border-subtle bg-transparent text-royal-indigo hover:bg-royal-indigo/5 active:translate-y-[1px]",
+      "border border-border-subtle bg-transparent text-deep-aubergine hover:bg-white active:translate-y-[1px]",
     marigold:
-      "bg-marigold text-royal-indigo hover:bg-marigold-light shadow-sm active:translate-y-[1px]",
+      "bg-muted-marigold text-deep-aubergine hover:bg-muted-marigold/90 shadow-subtle active:translate-y-[1px]",
   };
 
   const sizeStyles = {
-    sm: "h-[44px] px-5 text-sm",
-    default: "h-[50px] px-7 text-base",
-    lg: "h-[54px] px-9 text-lg",
+    sm: "h-[42px] px-4 text-xs tracking-wide",
+    default: "h-[48px] px-6 text-sm tracking-wide",
+    lg: "h-[52px] px-8 text-base tracking-wide",
   };
 
   const combinedStyles = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
@@ -77,4 +77,3 @@ export function Button({
     </button>
   );
 }
-

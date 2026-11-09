@@ -28,7 +28,6 @@ export function SmartImage({
 }: SmartImageProps) {
   const [hasError, setHasError] = useState(false);
 
-  // Aspect ratio classes
   const ratioStyles: Record<string, string> = {
     "4/5": "aspect-[4/5]",
     "4/3": "aspect-[4/3]",
@@ -39,12 +38,16 @@ export function SmartImage({
 
   const radiusStyles: Record<string, string> = {
     none: "rounded-none",
-    card: "rounded-card", // 16px
-    hero: "rounded-hero", // 24px
+    card: "rounded-card", // 12px
+    hero: "rounded-hero", // 16px
   };
 
   return (
-    <figure className={`relative overflow-hidden bg-royal-indigo/5 border border-border-subtle ${ratioStyles[aspectRatio] || "aspect-[4/5]"} ${radiusStyles[rounded]} ${className}`}>
+    <figure
+      className={`relative overflow-hidden bg-deep-aubergine/5 border border-border-subtle ${
+        ratioStyles[aspectRatio] || "aspect-[4/5]"
+      } ${radiusStyles[rounded]} ${className}`}
+    >
       {!hasError ? (
         <Image
           src={src}
@@ -57,29 +60,22 @@ export function SmartImage({
           className="transition-transform duration-700 ease-out hover:scale-105"
         />
       ) : (
-        /* Editorial Fallback Graphic */
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-royal-indigo to-royal-indigo-dark text-warm-ivory text-center">
-          <svg className="w-12 h-12 mb-3 text-marigold opacity-80" viewBox="0 0 100 100" fill="none">
-            <rect x="15" y="25" width="70" height="55" rx="8" stroke="currentColor" strokeWidth="3" />
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-deep-aubergine to-aubergine-dark text-warm-ivory text-center">
+          <svg className="w-10 h-10 mb-2 text-muted-marigold opacity-80" viewBox="0 0 100 100" fill="none">
+            <rect x="15" y="25" width="70" height="55" rx="6" stroke="currentColor" strokeWidth="3" />
             <circle cx="50" cy="52" r="16" stroke="currentColor" strokeWidth="3" />
-            <circle cx="50" cy="52" r="6" fill="#C94B3B" />
+            <circle cx="50" cy="52" r="6" fill="#C96850" />
             <path d="M35 25V18C35 15.79 36.79 14 39 14H61C63.21 14 65 15.79 65 18V25" stroke="currentColor" strokeWidth="3" />
           </svg>
-          <span className="font-serif text-lg font-semibold tracking-wide text-warm-ivory">Rangrez Atelier Image</span>
-          <span className="text-xs text-marigold-light/80 mt-1 max-w-[240px] line-clamp-2">{alt}</span>
+          <span className="font-serif text-base font-semibold text-warm-ivory">Rangrez Atelier Frame</span>
+          <span className="text-xs text-muted-marigold mt-1 max-w-[200px] line-clamp-1">{alt}</span>
         </div>
       )}
 
-      {/* Subtle royal tint overlay (6-8%) to harmonize varied lighting into a unified signature look */}
-      <div className="absolute inset-0 pointer-events-none bg-royal-indigo/8 mix-blend-multiply" />
-      
-      {/* Delicate inner border for luxury framing */}
-      <div className="absolute inset-0 pointer-events-none border border-black/5" />
+      {/* Subtle organic tonal warmth */}
+      <div className="absolute inset-0 pointer-events-none bg-deep-aubergine/[0.04] mix-blend-multiply" />
 
-      {caption && (
-        <figcaption className="sr-only">{caption}</figcaption>
-      )}
+      {caption && <figcaption className="sr-only">{caption}</figcaption>}
     </figure>
   );
 }
-

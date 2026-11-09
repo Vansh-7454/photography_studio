@@ -70,7 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
-      <body className="min-h-screen flex flex-col bg-warm-ivory text-royal-indigo antialiased selection:bg-marigold selection:text-royal-indigo">
+      <body className="min-h-screen flex flex-col bg-warm-ivory text-deep-aubergine antialiased selection:bg-muted-marigold selection:text-aubergine-dark">
         {/* Skip to Content for Accessibility */}
         <a href="#main-content" className="skip-link">
           Skip to main content

@@ -3,121 +3,114 @@
 @tailwind utilities;
 
 :root {
-  --warm-ivory: #F8F2E8;
-  --ivory-surface: #FFFDF9;
-  --royal-indigo: #202447;
-  --royal-indigo-dark: #171A33;
-  --royal-indigo-card: #262B54;
-  --sindoor-red: #C94B3B;
-  --sindoor-dark: #A8382B;
-  --marigold: #E6A83A;
-  --marigold-light: #F7D284;
-  --peacock-teal: #287C78;
-  --peacock-dark: #1D5956;
-  --deep-plum: #70465B;
-  --border-subtle: #E8DDCF;
-  --border-dark: #2E335C;
-  --text-muted: #635F58;
-  --text-muted-dark: #B2ACA3;
+  --warm-ivory: #F7F2E9;
+  --ivory-surface: #FFFFFF;
+  --ivory-card: #FAF7F0;
+  --deep-aubergine: #392A3B;
+  --aubergine-dark: #281D2A;
+  --aubergine-surface: #453448;
+  --terracotta: #C96850;
+  --terracotta-dark: #AF543E;
+  --muted-marigold: #D9A64B;
+  --soft-sage: #89947A;
+  --border-subtle: #E7DFD3;
+  --border-dark: #524055;
+  --text-muted: #695D69;
+  --text-muted-dark: #D4CAD4;
 }
 
-/* Selection */
+/* Selection Color */
 ::selection {
-  background-color: #E6A83A;
-  color: #202447;
+  background-color: #D9A64B;
+  color: #281D2A;
 }
 
 /* Base Body */
 body {
-  background-color: #F8F2E8;
-  color: #202447;
+  background-color: #F7F2E9;
+  color: #392A3B;
   font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography refinements */
+/* Editorial Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), serif;
   text-wrap: balance;
   letter-spacing: -0.015em;
+  font-weight: 600;
 }
 
 p {
   text-wrap: pretty;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
-/* Focus styles for WCAG AA */
+/* Focus styles for Accessibility */
 :focus-visible {
-  outline: 2px solid #E6A83A;
+  outline: 2px solid #C96850;
   outline-offset: 2px;
 }
 
-/* Skip to Content Link */
+/* Skip link */
 .skip-link {
   position: absolute;
   top: -60px;
   left: 20px;
-  background: #C94B3B;
+  background: #C96850;
   color: #FFFFFF;
-  padding: 12px 20px;
+  padding: 10px 18px;
   z-index: 100;
   font-weight: 600;
-  border-radius: 8px;
+  font-size: 14px;
+  border-radius: 6px;
   transition: top 0.15s ease;
 }
 .skip-link:focus {
   top: 16px;
 }
 
-/* Standard Editorial Container */
+/* Editorial Container (1280px-1400px maximum) */
 .site-container {
-  width: min(100% - 40px, 1360px);
+  width: min(100% - 36px, 1340px);
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (min-width: 768px) {
   .site-container {
-    width: min(100% - 64px, 1360px);
+    width: min(100% - 64px, 1340px);
   }
 }
 
 @media (min-width: 1280px) {
   .site-container {
-    width: min(100% - 96px, 1360px);
+    width: min(100% - 96px, 1340px);
   }
 }
 
 /* Section Vertical Rhythm */
 .section-padding {
-  padding-top: clamp(64px, 8vw, 120px);
-  padding-bottom: clamp(64px, 8vw, 120px);
+  padding-top: clamp(60px, 7vw, 110px);
+  padding-bottom: clamp(60px, 7vw, 110px);
 }
 
 .section-padding-compact {
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
-/* Subtle Indian Architectural Jharokha arch shape */
-.jharokha-arch {
-  border-top-left-radius: 48px;
-  border-top-right-radius: 48px;
+/* Clean Editorial Grain / Studio Texture */
+.studio-subtle-pattern {
+  background-image: radial-gradient(#392A3B 0.6px, transparent 0.6px);
+  background-size: 28px 28px;
+  opacity: 0.04;
 }
 
-/* Micro Indian Motif Border */
-.mandap-pattern {
-  background-image: radial-gradient(#202447 0.75px, transparent 0.75px);
-  background-size: 24px 24px;
+.studio-dark-pattern {
+  background-image: radial-gradient(#D9A64B 0.6px, transparent 0.6px);
+  background-size: 28px 28px;
   opacity: 0.05;
 }
-
-.mandap-pattern-dark {
-  background-image: radial-gradient(#E6A83A 0.75px, transparent 0.75px);
-  background-size: 24px 24px;
-  opacity: 0.08;
-}
-

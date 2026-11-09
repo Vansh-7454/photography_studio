@@ -12,12 +12,10 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
-  // Handle escape key to close menu
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -28,7 +26,6 @@ export function Header() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -42,7 +39,7 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 h-16 md:h-[72px] bg-warm-ivory/95 backdrop-blur-md border-b border-border-subtle transition-colors">
+      <header className="sticky top-0 z-40 h-[68px] md:h-[72px] bg-warm-ivory/95 backdrop-blur-md border-b border-border-subtle transition-colors">
         <div className="site-container h-full flex items-center justify-between">
           {/* Logo */}
           <Logo variant="full" theme="dark" />
@@ -55,16 +52,16 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-sm font-semibold tracking-wide transition-colors relative py-1 ${
+                  className={`text-[13px] font-semibold tracking-wide transition-colors relative py-1 ${
                     isActive
-                      ? "text-sindoor-red font-bold"
-                      : "text-royal-indigo hover:text-sindoor-red"
+                      ? "text-terracotta font-bold"
+                      : "text-deep-aubergine hover:text-terracotta"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-sindoor-red rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-terracotta rounded-full" />
                   )}
                 </Link>
               );
@@ -75,10 +72,10 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={siteContent.contact.phoneHref}
-              className="flex items-center gap-2 text-xs font-semibold text-royal-indigo hover:text-sindoor-red transition-colors px-2 py-1"
+              className="flex items-center gap-2 text-xs font-semibold text-deep-aubergine hover:text-terracotta transition-colors px-2 py-1"
               aria-label={`Call Rangrez at ${siteContent.contact.phoneDisplay}`}
             >
-              <Phone className="w-3.5 h-3.5 text-sindoor-red" />
+              <Phone className="w-3.5 h-3.5 text-terracotta" />
               <span>{siteContent.contact.phoneDisplay}</span>
             </a>
             <Button href="/contact" size="sm" variant="primary">
@@ -86,12 +83,12 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu Hamburger */}
+          {/* Mobile Menu Actions */}
           <div className="flex items-center gap-2 lg:hidden">
             <a
               href={siteContent.contact.whatsappHref}
-              className="p-2 text-peacock-teal hover:text-royal-indigo rounded-full"
-              aria-label="WhatsApp Us"
+              className="p-2 text-soft-sage hover:text-deep-aubergine rounded-full"
+              aria-label="WhatsApp Studio"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -100,8 +97,8 @@ export function Header() {
             <button
               type="button"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-royal-indigo hover:text-sindoor-red rounded-lg focus-visible:ring-2 focus-visible:ring-marigold"
-              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              className="p-2 text-deep-aubergine hover:text-terracotta rounded-lg focus-visible:ring-2 focus-visible:ring-terracotta"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -110,15 +107,15 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile Drawer (Zero heavy animation, instant clean toggle) */}
+      {/* Mobile Drawer */}
       {isOpen && (
         <div
-          className="fixed inset-0 top-16 z-50 bg-royal-indigo-dark text-warm-ivory lg:hidden flex flex-col p-6 overflow-y-auto"
+          className="fixed inset-0 top-[68px] z-50 bg-aubergine-dark text-warm-ivory lg:hidden flex flex-col p-6 overflow-y-auto"
           role="dialog"
           aria-modal="true"
-          aria-label="Mobile Navigation Menu"
+          aria-label="Navigation Menu"
         >
-          <div className="flex flex-col gap-5 py-4 border-b border-border-dark">
+          <div className="flex flex-col gap-4 py-4 border-b border-border-dark">
             {siteContent.navigation.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -127,7 +124,9 @@ export function Header() {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={`font-serif text-2xl tracking-wide transition-colors ${
-                    isActive ? "text-marigold font-bold pl-2 border-l-2 border-marigold" : "text-warm-ivory hover:text-marigold"
+                    isActive
+                      ? "text-muted-marigold font-bold pl-2 border-l-2 border-muted-marigold"
+                      : "text-warm-ivory hover:text-muted-marigold"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -138,14 +137,14 @@ export function Header() {
           </div>
 
           <div className="flex flex-col gap-4 mt-6">
-            <div className="text-xs text-text-muted-dark tracking-wider uppercase">
-              Meerut Studio &amp; Bookings
-            </div>
+            <span className="text-xs text-text-muted-dark tracking-wider uppercase font-semibold">
+              Civil Lines Studio • Meerut
+            </span>
             <a
               href={siteContent.contact.phoneHref}
               className="flex items-center gap-3 text-sm text-warm-ivory font-semibold"
             >
-              <Phone className="w-4 h-4 text-marigold" />
+              <Phone className="w-4 h-4 text-muted-marigold" />
               <span>{siteContent.contact.phoneDisplay}</span>
             </a>
             <a
@@ -154,13 +153,13 @@ export function Header() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-sm text-warm-ivory font-semibold"
             >
-              <MessageSquare className="w-4 h-4 text-peacock-teal" />
+              <MessageSquare className="w-4 h-4 text-soft-sage" />
               <span>Direct WhatsApp Inquiry</span>
             </a>
 
             <div className="pt-2">
               <Button href="/contact" variant="primary" className="w-full">
-                Schedule Consultation
+                Check Availability
               </Button>
             </div>
           </div>
@@ -169,4 +168,3 @@ export function Header() {
     </>
   );
 }
-

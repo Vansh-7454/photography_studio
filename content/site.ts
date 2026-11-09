@@ -6,16 +6,13 @@ export interface NavItem {
 export interface ImageAsset {
   src: string;
   alt: string;
-  aspectRatio: string;
-  focalPoint?: string;
+  aspectRatio: "4/5" | "4/3" | "16/9" | "21/9" | "1/1";
   caption?: string;
-  sourceCredit?: string;
-  isStock?: boolean;
 }
 
 export interface TrustItem {
   title: string;
-  subtitle: string;
+  desc: string;
   iconName: string;
 }
 
@@ -23,23 +20,19 @@ export interface FeaturedStory {
   id: string;
   couple: string;
   location: string;
-  season: string;
-  category: string;
-  summary: string;
+  tag: string;
   image: ImageAsset;
-  highlights: string[];
 }
 
 export interface ServicePackage {
   id: string;
   title: string;
   tagline: string;
-  badge?: string;
+  investment: string;
   coverage: string;
   description: string;
   deliverables: string[];
-  idealFor: string;
-  accentColor: string;
+  image: ImageAsset;
 }
 
 export interface FilmItem {
@@ -50,19 +43,16 @@ export interface FilmItem {
   duration: string;
   thumbnail: ImageAsset;
   description: string;
-  musicNote: string;
-  tags: string[];
+  audioTrack: string;
 }
 
 export interface JournalArticle {
   id: string;
   title: string;
-  category: string;
   readTime: string;
-  publishedDate: string;
   summary: string;
   image: ImageAsset;
-  keyPoints: string[];
+  tips: string[];
 }
 
 export interface FAQItem {
@@ -76,11 +66,11 @@ export const siteContent = {
     name: "RANGREZ",
     legalName: "Rangrez Wedding Stories & Films",
     tagline: "Har Pal Mein Ek Kahaani.",
-    englishTagline: "Every moment holds a timeless heirloom story.",
-    established: "Rooted in Meerut, Capturing Weddings Across India & Destinations",
+    studioType: "Creative Wedding Photography & Film Studio",
+    location: "Civil Lines, Meerut, India",
     city: "Meerut",
-    serviceArea: "Delhi NCR, Rajasthan, Uttarakhand, Himachal & Worldwide Destinations",
-    metaDescription: "Rangrez is a premier Indian wedding photography and cinematic film studio based in Meerut. Preserving the sacred rites, raw emotions, and royal splendor of Indian weddings.",
+    serviceArea: "Meerut, Delhi NCR, Rajasthan & Destinations Worldwide",
+    metaDescription: "Rangrez is a creative wedding photography and cinematic film studio based in Meerut. Capturing honest emotions, sacred rituals, and candid family moments.",
   },
 
   contact: {
@@ -88,10 +78,10 @@ export const siteContent = {
     phoneRaw: "9897012345",
     phoneHref: "tel:+919897012345",
     whatsappDisplay: "+91 98970 12345",
-    whatsappHref: "https://wa.me/919897012345?text=Namaste%20Rangrez%20team,%20I%20would%20like%20to%20inquire%20about%20wedding%20photography%20and%20cinematic%20film%20dates.",
-    email: "enquiry@rangrezweddings.com",
-    address: "Atelier Rangrez, Civil Lines, Opposite Circuit House, Meerut, Uttar Pradesh 250001",
-    hours: "Tuesday to Sunday: 10:30 AM – 7:30 PM (Consultations by Prior Appointment)",
+    whatsappHref: "https://wa.me/919897012345?text=Hi%20Rangrez%20team,%20I'd%20love%20to%20check%20availability%20for%20our%20wedding%20dates.",
+    email: "hello@rangrezweddings.com",
+    address: "Atelier Rangrez, Civil Lines, Near Circuit House, Meerut, UP 250001",
+    hours: "Tue – Sun: 10:30 AM – 7:30 PM (By Appointment)",
     mapUrl: "https://maps.google.com/?q=Civil+Lines+Meerut+Uttar+Pradesh",
   },
 
@@ -106,437 +96,355 @@ export const siteContent = {
   ] as NavItem[],
 
   themeTokens: {
-    primaryIndigo: "#202447",
-    sindoorRed: "#C94B3B",
-    marigold: "#E6A83A",
-    peacockTeal: "#287C78",
-    warmIvory: "#F8F2E8",
-    deepPlum: "#70465B",
+    warmIvory: "#F7F2E9",
+    deepAubergine: "#392A3B",
+    terracotta: "#C96850",
+    mutedMarigold: "#D9A64B",
+    softSage: "#89947A",
   },
 
-  trustStrip: [
-    {
-      title: "Sacred Documentary Approach",
-      subtitle: "Unscripted, genuine tears, laughter, and rituals without staged disruptions.",
-      iconName: "Flame",
+  hero: {
+    eyebrow: "Meerut • Worldwide Weddings",
+    headline: "Your Story. Our Frames. Forever.",
+    subtitle: "Honest emotions. Beautiful chaos. Memories that stay.",
+    ctaPrimary: "Let's Make Your Story",
+    ctaSecondary: "View Wedding Portfolio",
+    image: {
+      src: "/images/home/hero-wedding.jpg",
+      alt: "Authentic Indian royal bride and groom in traditional wedding attire in palace courtyard",
+      aspectRatio: "4/5" as const,
     },
-    {
-      title: "Dual Format Mastery",
-      subtitle: "Ultra-high definition medium format still photography paired with 4K color-graded cinema.",
-      iconName: "Camera",
-    },
-    {
-      title: "Handcrafted Heirlooms",
-      subtitle: "Italian archival paper flush-mount albums hand-bound to last for generations.",
-      iconName: "BookOpen",
-    },
-    {
-      title: "Meerut to Destinations",
-      subtitle: "Bespoke production teams for grand palace, hillside, and ancestral celebrations.",
-      iconName: "Compass",
-    },
-  ] as TrustItem[],
+  },
+
+  studioStats: [
+    { label: "Commissions / Year", value: "18 Max", note: "Dedicated attention to every couple" },
+    { label: "Full Frame & Cinema", value: "4K 10-Bit", note: "Sony Cine primes & live multi-track audio" },
+    { label: "Heirloom Albums", value: "Hand-Bound", note: "Italian cotton rag & lay-flat binding" },
+    { label: "Home Base", value: "Civil Lines, Meerut", note: "Traveling across India & destinations" },
+  ],
 
   featuredStories: [
     {
       id: "ananya-vikram-udaipur",
       couple: "Ananya & Vikram",
-      location: "Jagmandir Island Palace, Udaipur",
-      season: "Winter Royal Nuptials",
-      category: "Palace Wedding",
-      summary: "Three days of Rajputana grandeur—from a vibrant golden Marigold haldi ceremony by Lake Pichola to twilight pheras beneath a mandap of cascading mogra and tuberoses.",
+      location: "Jagmandir Palace, Udaipur",
+      tag: "Royal Palace Wedding",
       image: {
-        src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80",
-        alt: "Royal Indian bride in crimson red zardozi bridal lehenga with royal jewellery during her Udaipur palace wedding",
-        aspectRatio: "4/5",
-        caption: "Ananya in bespoke zardozi crimson at Jagmandir courtyard",
-        isStock: true,
+        src: "/images/home/palace-story.jpg",
+        alt: "Royal couple portrait by lake palace corridor in Rajasthan",
+        aspectRatio: "4/5" as const,
       },
-      highlights: [
-        "Acoustic Shehnai arrival on heritage royal boat",
-        "Chiaroscuro bridal portraits in candlelit jharokhas",
-        "Raw emotional bidaai at dawn with royal doli",
-      ],
     },
     {
       id: "meera-kabir-meerut",
       couple: "Meera & Kabir",
-      location: "Ancestral Heritage Farm, Meerut",
-      season: "Spring Pheras",
-      category: "Heritage Wedding",
-      summary: "An intimate, soulful ancestral wedding woven into family mango orchards in Meerut. Golden hour pheras attended by three generations of family warmth and folk music.",
+      location: "Ancestral Grove, Meerut",
+      tag: "Farmhouse Pheras",
       image: {
-        src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80",
-        alt: "Indian wedding couple holding hands during sacred pheras around the agni with marigold flower decor",
-        aspectRatio: "4/5",
-        caption: "Meera & Kabir during the sacred seven steps of pheras",
-        isStock: true,
+        src: "/images/home/candid-pheras.jpg",
+        alt: "Indian wedding couple holding hands during sacred pheras around holy fire",
+        aspectRatio: "4/5" as const,
       },
-      highlights: [
-        "Natural daylight orchard pheras under hand-strung marigolds",
-        "Spontaneous dholak sangeet sessions by grandmother and aunts",
-        "Timeless black & white fine-art family heirloom portraits",
-      ],
     },
     {
-      id: "tanya-rohan-jim-corbett",
+      id: "tanya-rohan-corbett",
       couple: "Tanya & Rohan",
-      location: "Riverbanks of Jim Corbett, Uttarakhand",
-      season: "Autumn Forest Wedding",
-      category: "Destination Wedding",
-      summary: "A tranquil wilderness celebration with earth-toned pheras, misty morning rituals by the riverbed, and an electrifying open-air sangeet under midnight Himalayan skies.",
+      location: "Riverbank, Jim Corbett",
+      tag: "Destination Wilderness",
       image: {
-        src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
-        alt: "Indian bride dressed in pastel pink lehenga with intricate kundan jewellery smiling gracefully",
-        aspectRatio: "4/5",
-        caption: "Tanya's sunrise bridal contemplation amidst Uttarakhand pines",
-        isStock: true,
+        src: "/images/portfolio/varmala-ceremony.jpg",
+        alt: "Emotional couple smiling warmly during outdoor garland ceremony",
+        aspectRatio: "4/5" as const,
       },
-      highlights: [
-        "Riverbed acoustic wedding ceremony at dusk",
-        "Subtle candid documentary coverage of close family conversations",
-        "Cinematic slow-motion film featuring original folk vocalists",
-      ],
     },
   ] as FeaturedStory[],
 
   portfolioCategories: [
-    "All Celebrations",
-    "Bridal Portraits",
+    "All Frames",
+    "Bridal & Groom",
     "Sacred Pheras",
-    "Haldi & Mehndi",
-    "Royal Palaces",
-    "Emotional Candids",
+    "Haldi & Mehendi",
+    "Candid Moments",
   ],
 
   portfolioItems: [
     {
       id: "p1",
-      category: "Bridal Portraits",
-      title: "The Regal Red Zardozi",
+      category: "Bridal & Groom",
+      title: "Crimson & Zardozi",
       couple: "Rhea's Bridal Elegance",
-      location: "Udaipur Palace",
+      location: "Udaipur",
+      aspect: "4/5" as const,
       image: {
-        src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80",
-        alt: "Traditional Indian bride in ornate red lehenga with matha patti and nose ring",
-        aspectRatio: "4/5",
-        isStock: true,
+        src: "/images/portfolio/bridal-lehenga-red.jpg",
+        alt: "Indian bride dressed in deep red zardozi lehenga with polki jewelry",
+        aspectRatio: "4/5" as const,
       },
     },
     {
       id: "p2",
-      category: "Haldi & Mehndi",
-      title: "Marigold Showers & Turmeric Laughter",
-      couple: "Arjun's Haldi Ritual",
-      location: "Ancestral Haveli, Meerut",
+      category: "Haldi & Mehendi",
+      title: "Turmeric Laughter",
+      couple: "Arjun & Friends",
+      location: "Meerut",
+      aspect: "4/5" as const,
       image: {
-        src: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
-        alt: "Joyful Indian haldi ceremony with yellow outfits, turmeric paste, and marigold petals",
-        aspectRatio: "4/5",
-        isStock: true,
+        src: "/images/portfolio/haldi-ritual.jpg",
+        alt: "Lively Haldi ceremony with marigold flowers and smiling friends",
+        aspectRatio: "4/5" as const,
       },
     },
     {
       id: "p3",
       category: "Sacred Pheras",
-      title: "The Agni & The Seven Vows",
+      title: "The Seven Steps",
       couple: "Kavya & Siddharth",
-      location: "Jaipur Mandap",
+      location: "Jaipur",
+      aspect: "4/5" as const,
       image: {
-        src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80",
-        alt: "Close-up of couple holding hands during sacred Indian wedding rituals around the fire",
-        aspectRatio: "4/5",
-        isStock: true,
+        src: "/images/home/candid-pheras.jpg",
+        alt: "Sacred pheras around the agni havan kund with flower petals",
+        aspectRatio: "4/5" as const,
       },
     },
     {
       id: "p4",
-      category: "Royal Palaces",
-      title: "Echoes of the Fort Corridor",
-      couple: "Devika & Shaurya",
-      location: "Neemrana Fort-Palace",
+      category: "Bridal & Groom",
+      title: "Subtle Radiance",
+      couple: "Tanvi in Heritage Polki",
+      location: "Delhi NCR",
+      aspect: "4/5" as const,
       image: {
-        src: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1000&q=80",
-        alt: "Indian wedding couple posing gracefully in traditional sherwani and lehenga at a historic fort",
-        aspectRatio: "4/5",
-        isStock: true,
+        src: "/images/portfolio/bridal-portrait.jpg",
+        alt: "Natural daylight bridal portrait highlighting delicate jewelry and expression",
+        aspectRatio: "4/5" as const,
       },
     },
     {
       id: "p5",
-      category: "Bridal Portraits",
-      title: "Intricate Henna & Polki Jewels",
-      couple: "Simran's Bridal Adornment",
-      location: "Delhi NCR",
+      category: "Haldi & Mehendi",
+      title: "Intricate Henna",
+      couple: "Simran's Mehendi Afternoon",
+      location: "Ranthambore",
+      aspect: "4/5" as const,
       image: {
-        src: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1000&q=80",
-        alt: "Detailed view of bridal mehndi on hands holding authentic bridal jewellery",
-        aspectRatio: "4/5",
-        isStock: true,
+        src: "/images/portfolio/mehndi-detail.jpg",
+        alt: "Detailed view of bride's hands adorned with intricate mehendi patterns",
+        aspectRatio: "4/5" as const,
       },
     },
     {
       id: "p6",
-      category: "Emotional Candids",
-      title: "Father's Blessing at Bidaai",
-      couple: "Nandini & Raghav",
-      location: "Meerut",
+      category: "Candid Moments",
+      title: "A Father's Gaze",
+      couple: "Bidaai Farewell",
+      location: "Civil Lines, Meerut",
+      aspect: "4/5" as const,
       image: {
-        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80",
-        alt: "Tearful and emotional embrace between father and daughter during Indian wedding farewell",
-        aspectRatio: "4/5",
-        isStock: true,
-      },
-    },
-    {
-      id: "p7",
-      category: "Haldi & Mehndi",
-      title: "Symphony of Henna Patterns",
-      couple: "Pooja's Mehndi Afternoon",
-      location: "Ranthambore",
-      image: {
-        src: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1000&q=80",
-        alt: "Intricate Indian bridal mehndi with peacocks and traditional motifs",
-        aspectRatio: "4/5",
-        isStock: true,
-      },
-    },
-    {
-      id: "p8",
-      category: "Sacred Pheras",
-      title: "Varmala Under Twilight Flora",
-      couple: "Isha & Varun",
-      location: "Rishikesh Foothills",
-      image: {
-        src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
-        alt: "Couple exchanging floral varmala garlands with rose and jasmine flowers",
-        aspectRatio: "4/5",
-        isStock: true,
+        src: "/images/portfolio/emotional-candid.jpg",
+        alt: "Heartfelt candid embrace between bride and her father during bidaai",
+        aspectRatio: "4/5" as const,
       },
     },
   ],
 
   weddingFilms: [
     {
-      id: "film-ananya-vikram",
-      title: "Kesariya Phool — The Royal Vows of Udaipur",
+      id: "film-udaipur",
+      title: "Kesariya Phool",
       couple: "Ananya & Vikram",
       location: "Jagmandir Palace, Udaipur",
-      duration: "14 Min Cinematic Feature",
+      duration: "12 Min 4K Film",
       thumbnail: {
-        src: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80",
-        alt: "Cinematic wedding film still of Indian bride looking into the sunset over Lake Pichola",
-        aspectRatio: "16/9",
-        isStock: true,
+        src: "/images/films/film-udaipur.jpg",
+        alt: "Film still of royal wedding celebration at Lake Pichola",
+        aspectRatio: "16/9" as const,
       },
-      description: "A sweeping multi-day cinematic documentary capturing the royal heritage of Udaipur. Features bespoke live Shehnai scoring, intimate audio letters exchanged at dawn, and grand drone cinematography over Pichola.",
-      musicNote: "Original Sufi & Raag Yaman acoustic composition recorded live in Rajasthan.",
-      tags: ["4K Cinema", "Drone Cinematography", "Audio Letters", "Live Music"],
+      description: "A sweeping royal monograph with live Shehnai recorded on Lake Pichola, quiet dawn vow exchanges, and sunset pheras.",
+      audioTrack: "Live Acoustic Shehnai & Sitar score recorded on location.",
     },
     {
-      id: "film-meera-kabir",
-      title: "Maati Ki Sugandh — Meerut Farmhouse Pheras",
+      id: "film-meerut",
+      title: "Maati Aur Mogra",
       couple: "Meera & Kabir",
-      location: "Civil Lines & Ancestral Grove, Meerut",
-      duration: "11 Min Documentary Film",
+      location: "Civil Lines Grove, Meerut",
+      duration: "10 Min Documentary",
       thumbnail: {
-        src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80",
-        alt: "Emotional wedding film still of couple walking around the holy agni",
-        aspectRatio: "16/9",
-        isStock: true,
+        src: "/images/films/film-meerut.jpg",
+        alt: "Cinematic film still of couple walking hand in hand through mango grove",
+        aspectRatio: "16/9" as const,
       },
-      description: "An intimate, heart-stirring film honoring ancestral soil and pure childhood memories. Focuses deeply on grandmother's folk songs, the thunderous local baraat, and the sacred silence of the pheras.",
-      musicNote: "Folk dholak rhythms blended with gentle Sarangi passages.",
-      tags: ["Documentary", "Family Candids", "Folk Nuances", "4K Sound Design"],
+      description: "An intimate, soulful tribute to hometown roots. Features grandmother's folk songs and laughter under the old trees.",
+      audioTrack: "Acoustic Sarangi blended with authentic dholak rhythms.",
     },
     {
-      id: "film-tanya-rohan",
-      title: "Himalayan Whisper — Riverbed Celebration",
+      id: "film-corbett",
+      title: "Riverbed Vows",
       couple: "Tanya & Rohan",
       location: "Kosi Riverbank, Jim Corbett",
-      duration: "16 Min Feature Film",
+      duration: "14 Min Cinema",
       thumbnail: {
-        src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
-        alt: "Film still of couple sharing a quiet private laugh under forest canopy",
-        aspectRatio: "16/9",
-        isStock: true,
+        src: "/images/films/film-corbett.jpg",
+        alt: "Film still of couple sharing quiet laughter beside mountain river",
+        aspectRatio: "16/9" as const,
       },
-      description: "Framed against whispering pine trees and gentle river currents. Includes Tanya's brother's heartwarming toast and Rohan's handwritten vows read beside the river at dawn.",
-      musicNote: "Contemporary acoustic guitar paired with soft bansuri flute melodies.",
-      tags: ["Destination Film", "Vow Audio", "Cinematic Teaser", "Multi-Camera"],
+      description: "A serene celebration amidst pine forests and river mist. Rohan's handwritten letter and Tanya's brother's toast.",
+      audioTrack: "Soft bansuri flute melodies paired with acoustic guitar.",
     },
     {
-      id: "film-shruti-aditya",
-      title: "Jodhpur Amber — The Fortress of Love",
+      id: "film-jodhpur",
+      title: "Amber Skies",
       couple: "Shruti & Aditya",
-      location: "Umaid Bhawan & Mehrangarh, Jodhpur",
-      duration: "18 Min Grand Feature",
+      location: "Mehrangarh Foot, Jodhpur",
+      duration: "15 Min Grand Reel",
       thumbnail: {
-        src: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1200&q=80",
-        alt: "Film still of groom in embroidered sherwani taking the hand of his bride at royal steps",
-        aspectRatio: "16/9",
-        isStock: true,
+        src: "/images/films/film-jodhpur.jpg",
+        alt: "Film still of twilight sangeet celebration against blue city skyline",
+        aspectRatio: "16/9" as const,
       },
-      description: "A visually majestic film celebrating Marwar heritage. Highlights include a dramatic torch-lit sangeet night and candid exchanges with childhood friends.",
-      musicNote: "Royal Rajasthani Manganiyar ensemble recording.",
-      tags: ["Heritage Grandeur", "4K Color Grade", "Drone", "Feature Length"],
+      description: "Majestic fortress backdrop, torchlit sangeet dancing, and candid moments with childhood friends.",
+      audioTrack: "Live Rajasthani Manganiyar ensemble.",
     },
   ] as FilmItem[],
 
   servicePackages: [
     {
-      id: "shahi-heirloom",
-      title: "The Shahi Heirloom Collection",
-      tagline: "Comprehensive 3-to-4 Day Royal Wedding Photography & Cinema",
-      badge: "Most Cherished for Destination Weddings",
-      coverage: "Complete coverage across 3–4 days (Haldi, Mehndi, Sangeet, Wedding & Reception)",
-      description: "Our signature flagship offering designed for grand multi-day celebrations. We deploy two dedicated cinematography crews and two senior documentary photographers to ensure no ritual, quiet glance, or thunderous dance step goes unpreserved.",
+      id: "shahi-collection",
+      title: "The Shahi Collection",
+      tagline: "3–4 Day Grand Celebration & Cinema",
+      investment: "Starting from ₹3,50,000",
+      coverage: "Haldi, Mehendi, Sangeet, Wedding Day & Reception",
+      description: "Our complete documentary crew for destination weddings and multi-day celebrations. Zero rushed moments.",
       deliverables: [
-        "2 Senior Master Photographers + 2 Fine-Art Candid Specialists",
-        "2 Cinematographers with Cinema 4K Cameras & Audio Recorders",
-        "Licensed Drone Aerial Cinematography for venue & baraat",
-        "18–22 Minute Cinematic Wedding Feature Film with custom sound design",
-        "3–4 Minute Expressive Teaser Reel delivered within 10 days",
-        "1,200+ Hand-Curated, High-Resolution Color-Graded Digital Heirlooms",
-        "Two 14x11 Handcrafted Italian Flush-Mount Leather Heirloom Albums (80 pages each)",
-        "Two Parent Presentation Mini-Albums (8x10)",
-        "Archival Wooden Keepsake Box with Custom Engraved USB",
+        "2 Senior Photographers + 2 Candid Specialists",
+        "2 Cinematographers (4K Cinema Cameras)",
+        "Drone Aerial Cinematography",
+        "15–20 Min Master Wedding Film + 3 Min Teaser",
+        "1,000+ Hand-Curated Color-Graded Photos",
+        "Two 14x11 Handcrafted Italian Flush-Mount Albums",
+        "Complimentary Pre-Wedding Session in Meerut or Delhi",
       ],
-      idealFor: "Grand palace, destination, or multi-day traditional weddings with extensive ceremonies.",
-      accentColor: "royal-indigo",
+      image: {
+        src: "/images/services/service-royal.jpg",
+        alt: "Grand royal wedding mandap setup at destination palace",
+        aspectRatio: "4/3" as const,
+      },
     },
     {
-      id: "parampara-classic",
-      title: "The Parampara Classic",
-      tagline: "Essential 2-Day Complete Wedding Coverage & Highlight Film",
-      badge: "Signature Collection",
-      coverage: "2 Days Full Coverage (Sangeet/Mehndi + Wedding Day & Pheras)",
-      description: "A balanced, refined service tailored for traditional celebrations. Focuses on authentic emotional storytelling, sacred Vedic rituals, and expressive couple portraits without intrusive staging.",
+      id: "parampara-collection",
+      title: "The Parampara Collection",
+      tagline: "2-Day Core Ceremonies & Highlights",
+      investment: "Starting from ₹2,25,000",
+      coverage: "Mehendi/Sangeet + Full Wedding Day & Pheras",
+      description: "The ideal coverage for traditional weddings. Thorough documentation of sacred rituals and family candids.",
       deliverables: [
-        "1 Senior Master Photographer + 1 Candid Documentary Photographer",
-        "2 Cinematographers with Full-Frame 4K Cameras",
-        "10–14 Minute Narrative Wedding Film with licensed music",
-        "2–3 Minute Highlight Reel optimized for private family sharing",
-        "700+ Master-Edited Color-Graded Digital Heirlooms",
-        "One 12x12 Handcrafted Archival Fine-Art Album (60 pages)",
-        "Complimentary Pre-Wedding Couple Consultation in Meerut Studio or Online",
+        "1 Lead Master Photographer + 1 Candid Specialist",
+        "2 Cinematographers (4K Full-Frame)",
+        "10–12 Min Narrative Wedding Film + 2 Min Reel",
+        "600+ Master-Edited Digital Photographs",
+        "One 12x12 Archival Lay-Flat Wedding Book",
         "Private Online Client Gallery with 1-Year Cloud Storage",
       ],
-      idealFor: "Couples desiring thorough, heartfelt documentary coverage of core ceremonies.",
-      accentColor: "sindoor-red",
+      image: {
+        src: "/images/services/service-traditional.jpg",
+        alt: "Traditional Indian wedding rituals with priest and family",
+        aspectRatio: "4/3" as const,
+      },
     },
     {
-      id: "utsav-intimate",
-      title: "The Utsav Intimate Collection",
-      tagline: "Single-Day Sacred Nuptials & Soulful Portraiture",
-      badge: "Intimate Celebrations",
-      coverage: "Single Day / Muhurat Ceremony + Family Reception (Up to 10 Hours)",
-      description: "Crafted specifically for bespoke intimate weddings, farmhouse celebrations, or sacred temple pheras where closeness and personal relationships are paramount.",
+      id: "utsav-collection",
+      title: "The Utsav Collection",
+      tagline: "Single-Day Sacred Nuptials",
+      investment: "Starting from ₹1,40,000",
+      coverage: "Wedding Ceremony & Reception (Up to 10 Hours)",
+      description: "Crafted specifically for intimate weddings, farmhouse pheras, or temple ceremonies where warmth matters most.",
       deliverables: [
-        "1 Senior Master Photographer + 1 Candid Specialist",
-        "1 Dedicated Cinematographer for ceremony highlights",
-        "5–7 Minute Soulful Highlight Film",
-        "400+ Hand-Edited High-Resolution Digital Photographs",
-        "One 10x10 Handcrafted Silk-Covered Memory Book (40 pages)",
-        "Full ceremony uncut audio and video recordings of pheras and vows",
-        "High-resolution digital delivery via private cloud archive",
+        "1 Lead Photographer + 1 Candid Specialist",
+        "1 Dedicated Cinematographer",
+        "5–7 Min Soulful Highlight Film",
+        "350+ Color-Graded Digital Heirlooms",
+        "One 10x10 Fine-Art Keepsake Book",
+        "Full ceremony uncut audio recording of pheras",
       ],
-      idealFor: "Bespoke gatherings, court ceremonies, temple weddings, or private farmhouse pheras.",
-      accentColor: "peacock-teal",
+      image: {
+        src: "/images/services/service-intimate.jpg",
+        alt: "Intimate family wedding celebration under morning sunlight",
+        aspectRatio: "4/3" as const,
+      },
     },
   ] as ServicePackage[],
 
   journalArticles: [
     {
-      id: "muhurat-lighting-guide",
-      title: "Timing Your Pheras: The Photographer's Guide to Golden Hour Indian Nuptials",
-      category: "Wedding Planning & Light",
-      readTime: "5 Min Read",
-      publishedDate: "November 2026",
-      summary: "How harmonizing your priest's auspicious muhurat with Rajasthan and North India's soft golden twilight transforms your sacred pheras into cinematic art.",
-      image: {
-        src: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80",
-        alt: "Sunset golden light falling gently on couple during traditional Indian wedding pheras",
-        aspectRatio: "16/9",
-        isStock: true,
-      },
-      keyPoints: [
-        "Why twilight light prevents harsh shadows on zardozi lehenga fabrics",
-        "Coordinating with the panditji for mandap orientation relative to the setting sun",
-        "How warm ambient candlelight elevates nighttime photography without blaring flashlights",
-      ],
-    },
-    {
-      id: "heirloom-albums-art",
-      title: "Beyond the Screen: Why We Still Hand-Bind Wedding Heirlooms in Real Paper",
-      category: "Artisanal Craft",
+      id: "golden-hour-muhurat",
+      title: "Golden Hour Pheras: Harmonizing Muhurat & Light",
       readTime: "4 Min Read",
-      publishedDate: "October 2026",
-      summary: "In an era of disposable digital scrolls, holding a heavy 80-page Italian flush-mount album remains the only true tactile bridge to your wedding day thirty years from now.",
+      summary: "How coordinating with your panditji for twilight pheras prevents harsh shadows and yields magical natural photos.",
       image: {
-        src: "https://images.unsplash.com/photo-1544077960-604201fe74bc?auto=format&fit=crop&w=1000&q=80",
-        alt: "Artisan inspecting high quality archival printed wedding photographs in album",
-        aspectRatio: "16/9",
-        isStock: true,
+        src: "/images/journal/journal-lighting.jpg",
+        alt: "Golden hour sunset lighting illuminating Indian wedding mandap",
+        aspectRatio: "16/9" as const,
       },
-      keyPoints: [
-        "True cotton rag paper versus synthetic chemical prints",
-        "How seamless lay-flat spreads allow panoramic palace compositions",
-        "The ritual of family album review: passing down memories to children and grandchildren",
+      tips: [
+        "Position the mandap facing west for soft sunset glow on couple's faces",
+        "Keep ambient yellow fairy lights warm rather than cool white LED floods",
+        "Schedule couple portraits 45 minutes before the pheras commence",
       ],
     },
     {
-      id: "unscripted-family-candids",
-      title: "The Art of Non-Intrusive Storytelling: Making Camera-Shy Parents Feel at Ease",
-      category: "Studio Philosophy",
-      readTime: "6 Min Read",
-      publishedDate: "September 2026",
-      summary: "Indian weddings are deeply emotional family tapestries. Here is how our documentary cameras blend into your baraat and bidaai without directing or freezing genuine tears.",
+      id: "tactile-albums",
+      title: "Why We Still Print Real Paper Albums",
+      readTime: "3 Min Read",
+      summary: "Digital files disappear into phone storage. A heavy, lay-flat Italian flush-mount book is an heirloom you hold decades later.",
       image: {
-        src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80",
-        alt: "Natural candid laughter shared between parents and family at Indian wedding",
-        aspectRatio: "16/9",
-        isStock: true,
+        src: "/images/journal/journal-album.jpg",
+        alt: "Handcrafted leather wedding photo album with thick archival paper",
+        aspectRatio: "16/9" as const,
       },
-      keyPoints: [
-        "Long focal lenses that allow family intimacy without crowding",
-        "Building genuine rapport with elders before ceremonial chaos begins",
-        "Anticipating unannounced rituals: the sudden hug, the silent tear, the shared gaze",
+      tips: [
+        "Museum-grade cotton rag paper preserves rich zardozi red pigments",
+        "Lay-flat binding allows double-page panoramic palace spreads",
+        "Custom foil debossing with your wedding date in Devanagari or English",
+      ],
+    },
+    {
+      id: "camera-shy-families",
+      title: "The Art of Non-Intrusive Storytelling",
+      readTime: "4 Min Read",
+      summary: "How our crew documents genuine emotions without asking your parents to hold frozen smiles or repeated poses.",
+      image: {
+        src: "/images/journal/journal-documentary.jpg",
+        alt: "Photographer documenting genuine family laughter from a respectful distance",
+        aspectRatio: "16/9" as const,
+      },
+      tips: [
+        "Using 85mm and 135mm prime lenses to give family space to breathe",
+        "Building warmth with elders before the ceremonial rush begins",
+        "Anticipating the tears of bidaai without crowding the car door",
       ],
     },
   ] as JournalArticle[],
 
   faqs: [
     {
-      category: "Bookings & Availability",
-      question: "How far in advance should we secure our wedding dates with Rangrez?",
-      answer: "Most couples book our dates 6 to 12 months in advance, especially for the high auspicious winter wedding muhurats (October through March). Because we take on a strictly limited number of weddings per season to maintain uncompromising editorial quality, we recommend inquiring as soon as your dates and venue are confirmed.",
+      category: "Bookings",
+      question: "How early should we book our wedding dates?",
+      answer: "Most couples book 6 to 9 months ahead, especially for high auspicious winter muhurats (November to February). We take a strict cap of 18 weddings a year to ensure every film is crafted with care.",
     },
     {
-      category: "Travel & Locations",
-      question: "Do you travel outside Meerut for destination and multi-city weddings?",
-      answer: "Yes, passionately. While our creative studio and print archives are located in Civil Lines, Meerut, over 70% of our commissions take us to Udaipur, Jaipur, Jodhpur, Mussoorie, Jim Corbett, Delhi NCR, and international destinations. Our travel and accommodation logistics are transparently organized as part of your bespoke proposal.",
+      category: "Travel",
+      question: "Do you travel outside Meerut for weddings?",
+      answer: "Yes, frequently. About 70% of our weddings take place in Udaipur, Jaipur, Mussoorie, Jim Corbett, and Delhi NCR. Travel and accommodation are planned transparently in your proposal.",
     },
     {
-      category: "Style & Philosophy",
-      question: "Will you make us do awkward or unnatural poses?",
-      answer: "Never. Our core philosophy is 'Har Pal Mein Ek Kahaani'—unscripted, documentary, and deeply authentic. During couple portraits, we offer gentle, natural direction with lighting and relaxed posture rather than stiff choreography, allowing your real chemistry and connection to lead the photograph.",
+      category: "Style",
+      question: "Will you make us do awkward or staged poses?",
+      answer: "Never. We believe in candid, honest documentary storytelling. For couple portraits, we offer gentle guidance with natural light and relaxed conversation rather than stiff, robotic poses.",
     },
     {
-      category: "Deliverables & Timelines",
-      question: "What is your delivery timeline for edited photographs and films?",
-      answer: "We deliver an expressive curated 'First Look' preview within 7 to 10 days of your celebrations so you can share highlights with close family. The complete archive of hand-color-graded photographs is delivered within 6 to 8 weeks. Cinematic feature films and hand-bound Italian albums are delivered within 10 to 12 weeks to allow for meticulous sound scoring and archival proofing.",
-    },
-    {
-      category: "Films & Audio",
-      question: "How do you capture audio during rituals and emotional moments?",
-      answer: "Sound is 50% of the cinematic experience. We utilize discreet wireless lapel microphones on the groom or priest during the pheras, and dedicated multi-channel high-fidelity audio recorders during vows and family toasts to capture every Sanskrit shloka and tearful laugh with studio-grade clarity.",
-    },
-    {
-      category: "Albums & Prints",
-      question: "Can we customize the heirloom album cover and paper finish?",
-      answer: "Yes. Every Rangrez album is handcrafted with your choice of genuine Italian leather, organic raw linen, or traditional banarasi silk covers. You can select between velvety fine-art matte paper or lustre finishes, with bespoke hot-stamped gold foil calligraphy featuring your names in Devanagari or English.",
+      category: "Deliverables",
+      question: "When do we receive our photos and wedding film?",
+      answer: "A curated 'First Look' preview of 50-70 photos arrives within 7 days. Complete high-res photos within 5–6 weeks. Your cinematic film and handcrafted album are delivered within 8–10 weeks.",
     },
   ] as FAQItem[],
 };
-

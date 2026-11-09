@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" fill="none" width="100%" height="100%">
   <!-- Icon Mark -->
   <g transform="translate(10, 5) scale(0.7)">
-    <path d="M50 8C32 8 20 22 20 40V82C20 86.4183 23.5817 90 28 90H72C76.4183 90 80 86.4183 80 82V40C80 22 68 8 50 8Z" stroke="#202447" stroke-width="4" stroke-linejoin="round" />
-    <path d="M50 16C50 16 34 26 34 42C34 50.8366 41.1634 58 50 58C58.8366 58 66 50.8366 66 42C66 26 50 16 50 16Z" stroke="#202447" stroke-width="3" fill="none" />
-    <circle cx="50" cy="42" r="7" stroke="#202447" stroke-width="3" />
-    <path d="M42 66H58M50 66V82M44 82H56" stroke="#202447" stroke-width="3.5" stroke-linecap="round" />
-    <circle cx="50" cy="28" r="2.5" fill="#C94B3B" />
+    <path d="M50 8C32 8 20 22 20 40V82C20 86.4183 23.5817 90 28 90H72C76.4183 90 80 86.4183 80 82V40C80 22 68 8 50 8Z" stroke="#392A3B" stroke-width="4" stroke-linejoin="round" />
+    <path d="M50 16C50 16 34 26 34 42C34 50.8366 41.1634 58 50 58C58.8366 58 66 50.8366 66 42C66 26 50 16 50 16Z" stroke="#392A3B" stroke-width="3" fill="none" />
+    <circle cx="50" cy="42" r="7" stroke="#392A3B" stroke-width="3" />
+    <path d="M42 66H58M50 66V82M44 82H56" stroke="#392A3B" stroke-width="3.5" stroke-linecap="round" />
+    <circle cx="50" cy="28" r="2.5" fill="#C96850" />
+    <circle cx="50" cy="42" r="2.5" fill="#D9A64B" />
   </g>
   
   <!-- Wordmark -->
-  <text x="92" y="44" font-family="'Playfair Display', 'Cormorant Garamond', Georgia, serif" font-size="28" font-weight="700" letter-spacing="0.18em" fill="#202447">RANGREZ</text>
-  <text x="94" y="62" font-family="'Manrope', system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="0.28em" fill="#635F58">WEDDING STORIES &amp; FILMS</text>
+  <text x="92" y="44" font-family="'Cormorant Garamond', 'Playfair Display', Georgia, serif" font-size="28" font-weight="700" letter-spacing="0.18em" fill="#392A3B">RANGREZ</text>
+  <text x="94" y="60" font-family="'Manrope', system-ui, sans-serif" font-size="9" font-weight="600" letter-spacing="0.26em" fill="#695D69">WEDDING STORIES &amp; FILMS</text>
 </svg>
-

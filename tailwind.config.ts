@@ -10,36 +10,45 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "warm-ivory": "#F8F2E8",
-        "ivory-surface": "#FFFDF9",
-        "royal-indigo": "#202447",
-        "royal-indigo-dark": "#171A33",
-        "royal-indigo-card": "#262B54",
-        "sindoor-red": "#C94B3B",
-        "sindoor-dark": "#A8382B",
-        "marigold": "#E6A83A",
-        "marigold-light": "#F7D284",
-        "peacock-teal": "#287C78",
-        "peacock-dark": "#1D5956",
-        "deep-plum": "#70465B",
-        "border-subtle": "#E8DDCF",
-        "border-dark": "#2E335C",
-        "text-muted": "#635F58",
-        "text-muted-dark": "#B2ACA3",
+        // Distinctive Creative-Studio Palette
+        "warm-ivory": "#F7F2E9",
+        "ivory-surface": "#FFFFFF",
+        "ivory-card": "#FAF7F0",
+        
+        "deep-aubergine": "#392A3B",
+        "aubergine-dark": "#281D2A",
+        "aubergine-surface": "#453448",
+        
+        "terracotta": "#C96850",
+        "terracotta-dark": "#AF543E",
+        "terracotta-light": "#F2E8E4",
+        
+        "muted-marigold": "#D9A64B",
+        "marigold-light": "#F9EDD4",
+        
+        "soft-sage": "#89947A",
+        "sage-light": "#EEF1EC",
+        
+        "border-subtle": "#E7DFD3",
+        "border-dark": "#524055",
+        
+        "text-muted": "#695D69",
+        "text-muted-dark": "#D4CAD4",
       },
       fontFamily: {
-        serif: ["var(--font-heading)", "Playfair Display", "Cormorant Garamond", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "Manrope", "system-ui", "sans-serif"],
+        serif: ["var(--font-heading)", "Cormorant Garamond", "Playfair Display", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "Manrope", "DM Sans", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        'input': '8px',
-        'card': '16px',
-        'hero': '24px',
+        'input': '6px',
+        'card': '12px',
+        'hero': '16px',
       },
       boxShadow: {
-        'card': '0 4px 20px -2px rgba(32, 36, 71, 0.08)',
-        'raised': '0 12px 36px -4px rgba(32, 36, 71, 0.14)',
-        'dark-card': '0 8px 30px -4px rgba(0, 0, 0, 0.45)',
+        'subtle': '0 2px 12px -2px rgba(57, 42, 59, 0.06)',
+        'card': '0 6px 24px -4px rgba(57, 42, 59, 0.08)',
+        'raised': '0 16px 40px -8px rgba(57, 42, 59, 0.14)',
+        'dark-card': '0 12px 36px -4px rgba(0, 0, 0, 0.4)',
       },
     },
   },
@@ -47,4 +56,3 @@ const config: Config = {
 };
 
 export default config;
-
