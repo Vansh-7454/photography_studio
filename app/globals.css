@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --warm-ivory: #F8F2E8;
+  --ivory-surface: #FFFDF9;
+  --royal-indigo: #202447;
+  --royal-indigo-dark: #171A33;
+  --royal-indigo-card: #262B54;
+  --sindoor-red: #C94B3B;
+  --sindoor-dark: #A8382B;
+  --marigold: #E6A83A;
+  --marigold-light: #F7D284;
+  --peacock-teal: #287C78;
+  --peacock-dark: #1D5956;
+  --deep-plum: #70465B;
+  --border-subtle: #E8DDCF;
+  --border-dark: #2E335C;
+  --text-muted: #635F58;
+  --text-muted-dark: #B2ACA3;
+}
+
+/* Selection */
+::selection {
+  background-color: #E6A83A;
+  color: #202447;
+}
+
+/* Base Body */
+body {
+  background-color: #F8F2E8;
+  color: #202447;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography refinements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), serif;
+  text-wrap: balance;
+  letter-spacing: -0.015em;
+}
+
+p {
+  text-wrap: pretty;
+  line-height: 1.65;
+}
+
+/* Focus styles for WCAG AA */
+:focus-visible {
+  outline: 2px solid #E6A83A;
+  outline-offset: 2px;
+}
+
+/* Skip to Content Link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: #C94B3B;
+  color: #FFFFFF;
+  padding: 12px 20px;
+  z-index: 100;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Standard Editorial Container */
+.site-container {
+  width: min(100% - 40px, 1360px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .site-container {
+    width: min(100% - 64px, 1360px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .site-container {
+    width: min(100% - 96px, 1360px);
+  }
+}
+
+/* Section Vertical Rhythm */
+.section-padding {
+  padding-top: clamp(64px, 8vw, 120px);
+  padding-bottom: clamp(64px, 8vw, 120px);
+}
+
+.section-padding-compact {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* Subtle Indian Architectural Jharokha arch shape */
+.jharokha-arch {
+  border-top-left-radius: 48px;
+  border-top-right-radius: 48px;
+}
+
+/* Micro Indian Motif Border */
+.mandap-pattern {
+  background-image: radial-gradient(#202447 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  opacity: 0.05;
+}
+
+.mandap-pattern-dark {
+  background-image: radial-gradient(#E6A83A 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  opacity: 0.08;
+}
+
